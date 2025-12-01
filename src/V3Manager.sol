@@ -40,12 +40,9 @@ contract V3Manager is Auth {
   }
 
   /// @notice Sets the protocol fee to be used for all pools
-  /// @dev must be between 4 and 10, or 0 to disable - must apply to each pool everytime it's changed
+  /// @dev must apply to each pool everytime it's changed
   /// @param _protocolFee The protocol fee to be used for all pools
   function setProtocolFee(uint8 _protocolFee) external onlyOwner {
-    require(
-      _protocolFee == 0 || (_protocolFee >= 4 && _protocolFee <= 10)
-    );
     protocolFee = _protocolFee;
   }
 
